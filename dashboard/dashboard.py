@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
+import os
 
 # Set up Streamlit page layout
 st.set_page_config(page_title="Customer Satisfaction Dashboard", layout="wide")
@@ -9,13 +10,21 @@ st.set_page_config(page_title="Customer Satisfaction Dashboard", layout="wide")
 sns.set(style="darkgrid")
 
 # Fungsi untuk memuat data
-@st.cache_data
+
+@st.cache
 def load_data():
-    orders_ollist = pd.read_csv('/data/orders_dataset.csv')
-    customers_ollist = pd.read_csv('/data/customers_dataset.csv')
-    order_reviews_ollist = pd.read_csv('/data/order_reviews_dataset.csv')
-    order_items_ollist = pd.read_csv('/data/order_items_dataset.csv')
-    products_ollist = pd.read_csv('/data/products_dataset.csv')
+    # Tentukan path file relatif
+    data_path = 'data/orders_dataset.csv'
+
+    # Periksa apakah file ada
+    if not os.path.exists(data_path):
+        raise FileNotFoundError(f"File {data_path} tidak ditemukan!")
+
+    orders_ollist = pd.read_csv(data_path)
+    customers_ollist = pd.read_csv('data/customers_dataset.csv')
+    order_reviews_ollist = pd.read_csv('data/order_reviews_dataset.csv')
+    order_items_ollist = pd.read_csv('data/order_items_dataset.csv')
+    products_ollist = pd.read_csv('data/products_dataset.csv')
 
     return orders_ollist, customers_ollist, order_reviews_ollist, order_items_ollist, products_ollist
 
