@@ -1,0 +1,7 @@
+Library:
+matplotlib-inline
+numpy
+pandas
+seaborn
+streamlit
+format_currency
