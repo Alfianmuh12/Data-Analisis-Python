@@ -162,10 +162,6 @@ ax.set_ylabel('Average Review Score', fontsize=14)
 # Memperbesar jarak antara label sumbu X dan memperbaiki orientasi
 ax.set_xticklabels(ax.get_xticklabels(), rotation=45, ha='right', fontsize=12)
 
-# Menambahkan jumlah item terjual di atas batang
-for index, row in product_analysis.iterrows():
-    ax.text(index, row['average_review_score'] + 0.05,  # Menambah jarak antara teks dan batang
-            row['total_items_sold'], color='black', ha='center', fontsize=10)
 
 # Menambahkan lebih banyak ruang pada plot
 plt.tight_layout(pad=3.0)  # Menambah padding di sekitar plot agar lebih renggang
