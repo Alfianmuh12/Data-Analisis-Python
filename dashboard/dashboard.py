@@ -150,21 +150,29 @@ average_scores.columns = ['product_category_name', 'average_review_score']
 product_analysis = product_analysis.merge(average_scores, on='product_category_name', how='left')
 
 # Visualisasi: Rata-rata skor ulasan per kategori produk
-fig, ax = plt.subplots(figsize=(12, 6))
+fig, ax = plt.subplots(figsize=(14, 8))  # Memperbesar ukuran plot
+
 sns.barplot(data=product_analysis, x='product_category_name', y='average_review_score', ax=ax)
 
+# Menambahkan judul dan label
 ax.set_title('Average Review Score by Product Category', fontsize=16)
 ax.set_xlabel('Product Category Name', fontsize=14)
 ax.set_ylabel('Average Review Score', fontsize=14)
-ax.set_xticklabels(ax.get_xticklabels(), rotation=45, ha='right')
+
+# Memperbesar jarak antara label sumbu X dan memperbaiki orientasi
+ax.set_xticklabels(ax.get_xticklabels(), rotation=45, ha='right', fontsize=12)
 
 # Menambahkan jumlah item terjual di atas batang
 for index, row in product_analysis.iterrows():
-    ax.text(index, row['average_review_score'], row['total_items_sold'], color='black', ha='center')
+    ax.text(index, row['average_review_score'] + 0.05,  # Menambah jarak antara teks dan batang
+            row['total_items_sold'], color='black', ha='center', fontsize=10)
+
+# Menambahkan lebih banyak ruang pada plot
+plt.tight_layout(pad=3.0)  # Menambah padding di sekitar plot agar lebih renggang
 
 # Tampilkan grafik di Streamlit
-plt.tight_layout()
 st.pyplot(fig)
+
 
 # Informasi tambahan dan kesimpulan
 st.subheader("Key Insights")
