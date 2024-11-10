@@ -11,11 +11,11 @@ sns.set(style="darkgrid")
 # Fungsi untuk memuat data
 @st.cache_data
 def load_data():
-    orders_ollist = pd.read_csv('/Users/QQJ9G2/Downloads/Dev/Analisis Menggunakan Python/data/orders_dataset.csv')
-    customers_ollist = pd.read_csv('/Users/QQJ9G2/Downloads/Dev/Analisis Menggunakan Python/data/customers_dataset.csv')
-    order_reviews_ollist = pd.read_csv('/Users/QQJ9G2/Downloads/Dev/Analisis Menggunakan Python/data/order_reviews_dataset.csv')
-    order_items_ollist = pd.read_csv('/Users/QQJ9G2/Downloads/Dev/Analisis Menggunakan Python/data/order_items_dataset.csv')
-    products_ollist = pd.read_csv('/Users/QQJ9G2/Downloads/Dev/Analisis Menggunakan Python/data/products_dataset.csv')
+    orders_ollist = pd.read_csv('/data/orders_dataset.csv')
+    customers_ollist = pd.read_csv('/data/customers_dataset.csv')
+    order_reviews_ollist = pd.read_csv('/data/order_reviews_dataset.csv')
+    order_items_ollist = pd.read_csv('/data/order_items_dataset.csv')
+    products_ollist = pd.read_csv('/data/products_dataset.csv')
 
     return orders_ollist, customers_ollist, order_reviews_ollist, order_items_ollist, products_ollist
 
