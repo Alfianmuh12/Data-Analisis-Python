@@ -11,6 +11,4 @@ pip install numpy pandas scipy matplotlib seaborn jupyter streamlit
 ```
 streamlit run dashboard.py# Data-Analisis-Python
 
-## URL Dashboard
-```
 https://wrzyhmmb6nngvhfk9vpvkb.streamlit.app/
